@@ -1,23 +1,21 @@
-## JWT-Auth-Template
+## soccer-api-demo
 ## 
-## This template contains a basic navbar that will display the name of the logged in user.
+
 ### Instructions:
-#### 1.  Clone this repository to your local machine.
+
+#### 1.  Navigate into the repository and install node modules.
 ```
-git clone https://github.com/ManliestBen/jwt-auth-template.git
-```
-#### 2.  Navigate into the repository and install node modules.
-```
-cd jwt-auth-template
+cd soccer-api-demo
 npm i
 ```
-#### 3.  Create a .env file and add values for the database URL and mongoDB connection string.
+#### 2.  Create a .env file and add values for the database URL and mongoDB connection string.
 ```
 touch .env
 ```
 ```
 DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXX
 SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXX
+EU_API_KEY=XXXXXXXXXXXXXXXXXXXXXX
+AMERICAS_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXX
 ```
-#### 4.  Profit.# jwt-auth-template
-# soccer-api-demo
+#### 3.  Profit
