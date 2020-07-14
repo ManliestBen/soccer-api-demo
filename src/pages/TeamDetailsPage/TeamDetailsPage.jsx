@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { getTeamInfo } from '../../services/api-search';
+import { getImg } from '../../services/team-lists';
 import { Link } from 'react-router-dom';
 
 class TeamDetailsPage extends Component {
     state = {
-        teamDetails: []
+        teamDetails: [],
+        teamImg: ''
     }
 
     async componentDidMount() {
         const teamDetails = await getTeamInfo(this.props.match.params.id);
-        this.setState({teamDetails})
+        const teamImg = getImg(this.props.match.params.id)
+        this.setState({teamDetails, teamImg})
     }
 
     render() {
@@ -18,6 +21,8 @@ class TeamDetailsPage extends Component {
             <>
                 {this.state.teamDetails.manager ?
                 <>
+                    <h3>{this.state.teamDetails.team.name}</h3>
+                    <img width="300" src={this.state.teamImg} alt=""/><br></br><br></br>
                     <div>Venue: {this.state.teamDetails.venue.name}</div><br></br>
                     <div>Location: {this.state.teamDetails.venue.city_name}</div><br></br>
                     <div>Capacity: {this.state.teamDetails.venue.capacity}</div><br></br><br></br>

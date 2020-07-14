@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getPlayerInfo } from '../../services/api-search';
-import { Link } from 'react-router-dom';
 
 class PlayerDetailsPage extends Component {
     state = {
