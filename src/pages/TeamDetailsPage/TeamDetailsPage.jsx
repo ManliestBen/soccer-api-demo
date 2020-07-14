@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getTeamInfo } from '../../services/api-search';
+import { Link } from 'react-router-dom';
 
 class TeamDetailsPage extends Component {
     state = {
@@ -24,7 +25,12 @@ class TeamDetailsPage extends Component {
                     <h4>Players:</h4><br></br>
                     {this.state.teamDetails.players.map((player) =>
                         <div key={player.name}>
-                            <div>Name: {player.name}</div><br></br>
+                            <Link
+                                to={{
+                                    pathname: `/details/player/${player.id}`,
+                                    player: {player}
+                                    }}
+                            >Name: {player.name}</Link><br></br>
                             <div>Position: {player.type}</div><br></br>
                             <div>DOB: {player.date_of_birth}</div><br></br><br></br>
                         </div>

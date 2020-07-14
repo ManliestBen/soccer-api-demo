@@ -15,7 +15,7 @@ class SpainPage extends Component {
                     <div key={team.name}>
                         <Link
                             to={{
-                            pathname: `/details/${team.id}`,
+                            pathname: `/details/team/${team.id}`,
                             team: {team}
                             }}
                         >{team.name}</Link><br></br>
