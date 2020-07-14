@@ -21,6 +21,19 @@ class TeamDetailsPage extends Component {
                     <div>Venue: {this.state.teamDetails.venue.name}</div><br></br>
                     <div>Location: {this.state.teamDetails.venue.city_name}</div><br></br>
                     <div>Capacity: {this.state.teamDetails.venue.capacity}</div><br></br><br></br>
+                    <div>Home Colors:</div>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[0].base}`}} className="color"></button> Base<br></br>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[0].sleeve}`}} className="color"></button> Sleeve<br></br>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[0].number}`}} className="color"></button> Number<br></br><br></br>
+                    <div>Away Colors:</div>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[1].base}`}} className="color"></button> Base<br></br>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[1].sleeve}`}} className="color"></button> Sleeve<br></br>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[1].number}`}} className="color"></button> Number<br></br><br></br>
+                    <div>Goalkeeper Colors:</div>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[2].base}`}} className="color"></button> Base<br></br>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[2].sleeve}`}} className="color"></button> Sleeve<br></br>
+                        <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[2].number}`}} className="color"></button> Number<br></br><br></br>
+
                     <h5>Manager Name: {this.state.teamDetails.manager.name}</h5><br></br><br></br>
                     <h4>Players:</h4><br></br>
                     {this.state.teamDetails.players.map((player) =>
