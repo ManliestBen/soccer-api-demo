@@ -33,3 +33,18 @@ export function removeFromDreamTeam(playerId){
     .then(res => res.json());
 }
 
+export function getDreamLineup(){
+    return fetch(`/api/americas/dreamlineup`, {
+        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+    }, {mode: "cors"})
+    .then(res => res.json());
+}
+
+export function saveDreamLineup(lineup){
+    return fetch(`/api/americas/dreamlineup`, {
+        method: "POST",
+        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+        body: JSON.stringify(lineup)
+    }, {mode: "cors"})
+    .then(res => res.json());
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getDreamTeam, removeFromDreamTeam } from '../../services/api-search';
+import DreamLineup from '../../components/DreamLineup/DreamLineup';
 
 class DreamTeamPage extends Component {
     state = {
@@ -28,6 +29,9 @@ class DreamTeamPage extends Component {
                         </div>
                     </div>
                 )}
+                <DreamLineup 
+                    players={this.state.players}
+                />
             </>
         )
     }

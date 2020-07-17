@@ -1,5 +1,6 @@
 const axios = require('axios');
 const Player = require('../models/player');
+const Lineup = require('../models/lineup');
 
 module.exports = {
     americasTeamInfo,
@@ -8,7 +9,20 @@ module.exports = {
     euPlayerInfo,
     americasAddPlayer,
     getDreamTeam,
-    removeFromDreamTeam
+    removeFromDreamTeam,
+    getDreamLineup,
+    saveDreamLineup
+}
+
+function saveDreamLineup(req, res){
+    req.body.user = req.user._id;
+    Lineup.findOneAndUpdate({"user":req.user._id}, req.body, {upsert: true, new: true})
+    .then((lineup) => {if (lineup) {res.json(lineup)} else {res.json()}})
+}
+
+function getDreamLineup(req, res){
+    Lineup.find({"user":req.user._id})
+    .then(lineup => {res.json(lineup)})
 }
 
 function removeFromDreamTeam(req, res){

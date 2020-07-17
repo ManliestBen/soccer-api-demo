@@ -11,5 +11,6 @@ router.use(require('../config/auth'));
 router.get('/americas/player/add/:id', apiCtrl.americasAddPlayer);
 router.get('/americas/dreamteam', apiCtrl.getDreamTeam);
 router.delete('/americas/dreamteam/:id', apiCtrl.removeFromDreamTeam);
-
+router.get('/americas/dreamlineup', apiCtrl.getDreamLineup);
+router.post('/americas/dreamlineup', apiCtrl.saveDreamLineup);
 module.exports = router;
