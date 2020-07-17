@@ -22,11 +22,11 @@ class DreamTeamPage extends Component {
         return (
             <>
                 {this.state.players.map((player) =>
-                    <> 
+                    <div key={player._id}> 
                         <div>{player.player.name} &nbsp;&nbsp;
-                        <button className="red sm-btn" onClick={()=>this.handleRemoveFromDreamTeam(player._id)}>X</button>
+                            <button className="red sm-btn" onClick={()=>this.handleRemoveFromDreamTeam(player._id)}>X</button>
                         </div>
-                    </>
+                    </div>
                 )}
             </>
         )
