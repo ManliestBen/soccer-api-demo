@@ -10,5 +10,6 @@ router.get('/eu/player/:id', apiCtrl.euPlayerInfo);
 router.use(require('../config/auth'));
 router.get('/americas/player/add/:id', apiCtrl.americasAddPlayer);
 router.get('/americas/dreamteam', apiCtrl.getDreamTeam);
+router.delete('/americas/dreamteam/:id', apiCtrl.removeFromDreamTeam);
 
 module.exports = router;

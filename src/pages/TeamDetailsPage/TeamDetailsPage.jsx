@@ -17,7 +17,7 @@ class TeamDetailsPage extends Component {
 
     handleAddToDreamTeam = (playerId) => {
         addToDreamTeam(playerId)
-        .then(this.props.history.push('/leagues'))
+        .then(this.props.history.push('/dreamteam'))
     }
 
     render() {

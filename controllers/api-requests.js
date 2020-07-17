@@ -7,7 +7,13 @@ module.exports = {
     americasPlayerInfo,
     euPlayerInfo,
     americasAddPlayer,
-    getDreamTeam
+    getDreamTeam,
+    removeFromDreamTeam
+}
+
+function removeFromDreamTeam(req, res){
+    Player.findByIdAndDelete(req.params.id)
+    .then(player => {res.json(player)})
 }
 
 function getDreamTeam(req, res){

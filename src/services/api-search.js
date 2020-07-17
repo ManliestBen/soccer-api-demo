@@ -24,3 +24,11 @@ export function getDreamTeam(){
     }, {mode: "cors"})
     .then(res => res.json());
 }
+
+export function removeFromDreamTeam(playerId){
+    return fetch(`/api/americas/dreamteam/${playerId}`,{
+        method: "DELETE",
+        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+    }, {mode: "cors"})
+    .then(res => res.json());
+}
