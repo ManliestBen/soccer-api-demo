@@ -13,7 +13,7 @@ class TeamDetailsPage extends Component {
     
     async componentDidMount() {
         const teamDetails = await getTeamInfo(this.props.match.params.id);
-        const teamImg = getImg(this.props.match.params.id)
+        const teamImg = getImg(this.props.match.params.id);
         const players = await getDreamTeam();
         const favePlayerIds = [];
         const lookup = {};
@@ -21,9 +21,7 @@ class TeamDetailsPage extends Component {
             favePlayerIds.push(player.player.id);
             lookup[player.player.id] = player._id;
         })
-        console.log(lookup);
         this.setState({teamDetails, teamImg, favePlayerIds, lookup})
-        
     }
 
     handleAddToDreamTeam = (playerId) => {
@@ -52,7 +50,6 @@ class TeamDetailsPage extends Component {
     
     render() {
         return (
-            
             <>
                 {this.state.teamDetails.manager ?
                 <>
@@ -73,7 +70,6 @@ class TeamDetailsPage extends Component {
                         <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[2].base}`}} className="color"></button> Base<br></br>
                         <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[2].sleeve}`}} className="color"></button> Sleeve<br></br>
                         <button style={{backgroundColor:`#${this.state.teamDetails.jerseys[2].number}`}} className="color"></button> Number<br></br><br></br>
-
                     <h5>Manager Name: {this.state.teamDetails.manager.name}</h5><br></br><br></br>
                     <h4>Players:</h4><br></br>
                     {this.state.teamDetails.players.map((player) =>
@@ -88,12 +84,10 @@ class TeamDetailsPage extends Component {
                             <><button onClick={()=>this.handleRemoveFromDreamTeam(player.id)}>Remove</button><br></br></>
                             :
                             <><button onClick={()=>this.handleAddToDreamTeam(player.id)}>Favorite</button><br></br></>
-
                             }
                             <div>Position: {player.type}</div><br></br>
                             <div>DOB: {player.date_of_birth}</div><br></br><br></br>
                         </div>
-                        
                     )}
                 </>
                 :

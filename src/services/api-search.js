@@ -15,7 +15,8 @@ export function addToDreamTeam(playerId) {
     return fetch(`/api/americas/player/add/${playerId}`,{
         headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}
     }, {mode: "cors"})
-    .then(res => res.json().then((data => { return data})));
+    .then(res => res.json()
+    .then((data => { return data})));
 }
 
 export function getDreamTeam(){
