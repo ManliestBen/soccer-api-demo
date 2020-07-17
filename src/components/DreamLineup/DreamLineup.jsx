@@ -43,10 +43,10 @@ class DreamLineup extends Component {
     };
 
     render() {
-        const goalkeeperSelect =[<option value="Please Select">Please Select</option>];
-        const defenderSelect = [<option value="Please Select">Please Select</option>];
-        const forwardSelect = [<option value="Please Select">Please Select</option>];
-        const midfielderSelect = [<option value="Please Select">Please Select</option>];
+        const goalkeeperSelect =[<option key="select1" value="Please Select">Please Select</option>];
+        const defenderSelect = [<option key="select2" value="Please Select">Please Select</option>];
+        const forwardSelect = [<option key="select3" value="Please Select">Please Select</option>];
+        const midfielderSelect = [<option key="select4" value="Please Select">Please Select</option>];
         this.props.players.forEach((player) => {
             if (player.player.type === 'goalkeeper') {goalkeeperSelect.push(<option key={player.player.name} value={player.player.name}>{player.player.name}</option>)}
             if (player.player.type === 'defender') {defenderSelect.push(<option key={player.player.name} value={player.player.name}>{player.player.name}</option>)}
