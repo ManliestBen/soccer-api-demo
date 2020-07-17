@@ -12,6 +12,7 @@ import EnglandPage from '../EnglandPage/EnglandPage';
 import SpainPage from '../SpainPage/SpainPage';
 import TeamDetailsPage from '../TeamDetailsPage/TeamDetailsPage';
 import PlayerDetailsPage from '../PlayerDetailsPage/PlayerDetailsPage';
+import DreamTeamPage from '../DreamTeamPage/DreamTeamPage';
 
 class App extends Component {
   state = {
@@ -88,6 +89,12 @@ class App extends Component {
             history={history}
             location={location}
             match={match}
+          />
+        }/>
+        <Route exact path='/dreamteam' render={({ history }) =>
+          <DreamTeamPage
+            user={this.state.user} 
+            history={history}
           />
         }/>
 

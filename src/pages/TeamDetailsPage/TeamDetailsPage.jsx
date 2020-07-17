@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getTeamInfo } from '../../services/api-search';
+import { getTeamInfo, addToDreamTeam } from '../../services/api-search';
 import { getImg } from '../../services/team-lists';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +13,11 @@ class TeamDetailsPage extends Component {
         const teamDetails = await getTeamInfo(this.props.match.params.id);
         const teamImg = getImg(this.props.match.params.id)
         this.setState({teamDetails, teamImg})
+    }
+
+    handleAddToDreamTeam = (playerId) => {
+        addToDreamTeam(playerId)
+        .then(this.props.history.push('/leagues'))
     }
 
     render() {
@@ -48,7 +53,7 @@ class TeamDetailsPage extends Component {
                                     pathname: `/details/player/${player.id}`,
                                     player: {player}
                                     }}
-                            >Name: {player.name}</Link><br></br>
+                            >Name: {player.name}</Link><button onClick={()=>this.handleAddToDreamTeam(player.id)}>Favorite</button><br></br>
                             <div>Position: {player.type}</div><br></br>
                             <div>DOB: {player.date_of_birth}</div><br></br><br></br>
                         </div>

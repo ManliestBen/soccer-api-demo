@@ -1,10 +1,27 @@
 const axios = require('axios');
+const Player = require('../models/player');
 
 module.exports = {
     americasTeamInfo,
     euTeamInfo,
     americasPlayerInfo,
-    euPlayerInfo
+    euPlayerInfo,
+    americasAddPlayer,
+    getDreamTeam
+}
+
+function getDreamTeam(req, res){
+    Player.find({"user":req.user._id})
+    .then(players => {res.json(players)})
+}
+
+function americasAddPlayer(req, res){
+    axios.get(`https://api.sportradar.us/soccer-t3/am/en/players/${req.params.id}/profile.json?api_key=${process.env.AMERICAS_API_KEY}`)
+    .then(response => {
+        response.data.user = req.user._id;
+        Player.create(response.data)
+        .then(player => {res.json(player)})
+    })
 }
 
 function americasTeamInfo(req, res) {
